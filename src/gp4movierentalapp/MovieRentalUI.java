@@ -28,21 +28,200 @@ public class MovieRentalUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        searchLabel = new javax.swing.JLabel();
+        searchField = new javax.swing.JTextField();
+        searchButton = new javax.swing.JButton();
+        searchScrollPanel = new javax.swing.JScrollPane();
+        searchResultList = new javax.swing.JList<>();
+        custEmailLabel = new javax.swing.JLabel();
+        custEmailField = new javax.swing.JTextField();
+        rentMovieButton = new javax.swing.JButton();
+        custEmailSubmit = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        newCustLNameField = new javax.swing.JTextField();
+        newCustEmailField = new javax.swing.JTextField();
+        newCustFNameField = new javax.swing.JTextField();
+        newCustFNameLabel = new javax.swing.JLabel();
+        newCustLNameLabel = new javax.swing.JLabel();
+        newCustEmailLabel = new javax.swing.JLabel();
+        newCustPhoneField = new javax.swing.JTextField();
+        newCustPhoneLabel = new javax.swing.JLabel();
+        newCustCreateButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        validLoginLabel = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        searchLabel.setText("Search Movies (enter title, director, release year, or genre):");
+
+        searchField.addActionListener(this::searchFieldActionPerformed);
+
+        searchButton.setText("Search");
+        searchButton.addActionListener(this::searchButtonActionPerformed);
+
+        searchResultList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        searchScrollPanel.setViewportView(searchResultList);
+
+        custEmailLabel.setText("Customer Email (required for renting and returning):");
+
+        rentMovieButton.setText("Rent This Movie");
+        rentMovieButton.addActionListener(this::rentMovieButtonActionPerformed);
+
+        custEmailSubmit.setText("Submit");
+
+        jLabel1.setText("Create an Account:");
+
+        newCustFNameLabel.setText("First Name: ");
+
+        newCustLNameLabel.setText("Last Name: ");
+
+        newCustEmailLabel.setText("Email:");
+
+        newCustPhoneLabel.setText("Phone:");
+
+        newCustCreateButton.setText("Create Account");
+        newCustCreateButton.addActionListener(this::newCustCreateButtonActionPerformed);
+
+        jLabel2.setText("Currently logged in as:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(searchLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(searchButton))
+                            .addComponent(searchScrollPanel)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(161, 161, 161)
+                        .addComponent(rentMovieButton)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(newCustCreateButton)
+                        .addGap(145, 145, 145))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(newCustFNameLabel)
+                                    .addComponent(newCustLNameLabel)
+                                    .addComponent(newCustEmailLabel)
+                                    .addComponent(newCustPhoneLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(newCustEmailField, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(newCustLNameField, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(newCustFNameField, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(newCustPhoneField, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(custEmailLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(custEmailField))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(custEmailSubmit))
+                                    .addComponent(jLabel1)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(validLoginLabel)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchLabel)
+                    .addComponent(custEmailLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchButton)
+                    .addComponent(custEmailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(custEmailSubmit))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(searchScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(validLoginLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(newCustFNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(newCustFNameLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(newCustLNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(newCustLNameLabel))
+                        .addGap(7, 7, 7)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(newCustEmailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(newCustEmailLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(newCustPhoneField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(newCustPhoneLabel))))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rentMovieButton)
+                    .addComponent(newCustCreateButton))
+                .addContainerGap(274, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void searchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchFieldActionPerformed
+        //Extraneous function
+    }//GEN-LAST:event_searchFieldActionPerformed
+
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        if(searchField.getText() != null){
+            String searchTerm = searchField.getText();
+            // Query database checking against searchterm
+        }else{
+            System.out.println("Enter a term into the search box.");
+            // Implement pop up?
+        };
+    }//GEN-LAST:event_searchButtonActionPerformed
+
+    private void rentMovieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentMovieButtonActionPerformed
+        if(validLoginLabel.getText() != null){
+            var selection = searchResultList.getSelectedValue();
+            // Reduce qty of selection by 1
+            // Track value of transaction
+        } else {
+            System.out.println("You must first be logged in.");
+        }
+    }//GEN-LAST:event_rentMovieButtonActionPerformed
+
+    private void newCustCreateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newCustCreateButtonActionPerformed
+        if(newCustFNameField.getText() != null && newCustLNameField.getText() != null && newCustPhoneField.getText() != null && newCustEmailField.getText() != null){
+            
+            // INSERT INTO [customer table](fields) VALUES (values) with unique email
+        } else {
+            System.out.println("Please fill out all fields");
+        }
+    }//GEN-LAST:event_newCustCreateButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -70,5 +249,26 @@ public class MovieRentalUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField custEmailField;
+    private javax.swing.JLabel custEmailLabel;
+    private javax.swing.JButton custEmailSubmit;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton newCustCreateButton;
+    private javax.swing.JTextField newCustEmailField;
+    private javax.swing.JLabel newCustEmailLabel;
+    private javax.swing.JTextField newCustFNameField;
+    private javax.swing.JLabel newCustFNameLabel;
+    private javax.swing.JTextField newCustLNameField;
+    private javax.swing.JLabel newCustLNameLabel;
+    private javax.swing.JTextField newCustPhoneField;
+    private javax.swing.JLabel newCustPhoneLabel;
+    private javax.swing.JButton rentMovieButton;
+    private javax.swing.JButton searchButton;
+    private javax.swing.JTextField searchField;
+    private javax.swing.JLabel searchLabel;
+    private javax.swing.JList<String> searchResultList;
+    private javax.swing.JScrollPane searchScrollPanel;
+    private javax.swing.JLabel validLoginLabel;
     // End of variables declaration//GEN-END:variables
 }
